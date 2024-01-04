@@ -1,19 +1,22 @@
-const timerEl = document.getElementById('countdown');
-const mainEl = document.getElementById('main');
+// Selects element by class
+const timeEl = document.querySelector(".timer");
 
-const message =
-'Some say the world will end in';
+// Selects element by id
+const mainEl = document.getElementById("p");
 
-function countdown() {
-let timeLeft = 75;
+let secondsLeft = 10;
 
-  // TODO: Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
-const timeInterval = setInterval(function () {
-    timeLeft--;
+function setTime() {
+  // Sets interval in variable
+  const timerInterval = setInterval(function () {
+    secondsLeft--;
+    timeEl.textContent = (`Time remaining ${secondsLeft}`);
+    if (secondsLeft === 0) {
+      clearInterval(timerInterval);
+      alert("Times up!");
+    }
 
-        if(timeLeft === 0){
-            clearInterval(timeInterval);
-            timerEl.textContent = "";
-        }
-    }, 1000);
+  }, 1000);
 }
+
+setTime();
