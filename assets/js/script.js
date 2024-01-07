@@ -1,101 +1,42 @@
-// // Selects element by class
-// const timeEl = document.querySelector(".timer");
-// const mainEl = document.getElementById("p");
 
-// let secondsLeft = 75;
 
-// function setTime() {
-//   const timerInterval = setInterval(function () {
-//   // Sets interval in variable
-//     timeEl.textContent = (`Time remaining ${secondsLeft}`);
-//     if (secondsLeft === 0) {
-//       clearInterval(timerInterval);
-//       alert("Times up!");
+//! Create a function that works when the Start Quiz is clicked on via HTML document.
+//! Create a timer within the function that begins to go down once Start Quiz is clicked.
+//! Create questions using functions in javascript where the user can answer one at a time.
+    //! Create questions using variables.
+//! Once the user answers a question, create a function that brings the user to the next question.
+//! Create within the function a mathmatical input that SUBTRACTS a time the user when they answer incorrectly.
+//! Create a function that when the timer reaches 0, user can no longer answer questions and is 
+//! redirected to a score board.
+//! Create a input box that allows user to type name and retain score by keeping the data within the browser.
+
+//! Functions needed: startQuiz, endQuiz, correctAnswer, wrongAnswer
+//! Variables/Let statements for questions, clock/timer, randomQuestion (if want questions to be randomized)
+    //! score, timeLimt   
+
+// // Once user presses on Start Quiz, timer will start to countdown from 75 seconds
+// function startTimer(){
+//   let counter = 75;
+//   setInterval(function() {
+//     counter--;
+//     if (counter >= 0) {
+//       p = document.querySelector("#time");
+//       p.innerHTML = counter;
 //     }
-
-//   },1000);
+//     // Timer will hit Zero and user will get an alert that time is up
+//     if (counter === 0) {
+//         alert('Times up!');
+//         clearInterval(counter);
+//     }
+//   }, 1000);
 // }
-// setTime();
 
+// function startQuiz(){   
+//   // Button turns red when user clicks on Start Quiz
+//     document.getElementById("timer").style="color:red;";
+//     startTimer();
+// };
 
-// let startquiz = document.querySelector(".startquiz");
-// let main = document.querySelector(".main");
-
-// startquiz.addEventListener("click", function() {
-//   secondsLeft--;
-// });
-
-
-function startTimer(){
-  let counter = 75;
-  setInterval(function() {
-    counter--;
-    if (counter >= 0) {
-      p = document.getElementById("count");
-      p.innerHTML = counter;
-    }
-    if (counter === 0) {
-        alert('Times up!');
-        clearInterval(counter);
-    }
-  }, 1000);
-}
-function start()
-{
-    document.getElementById("count").style="color:red;";
-    startTimer();
-};
-
-
-
-
-
-
-
-//! Trying a different way using QUESTIONS in script instead of HTML
-function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
-
-	function showQuestions(questions, quizContainer){
-		// code will go here
-	}
-
-	function showResults(questions, quizContainer, resultsContainer){
-		// code will go here
-	}
-
-	// show the questions
-	showQuestions(questions, quizContainer);
-
-	// when user clicks submit, show results
-	submitButton.onclick = function(){
-		showResults(questions, quizContainer, resultsContainer);
-	}
-}
-
-
-let questions = (
-	{
-		question: "Who is the Mets all time hitter?",
-		answers: {
-			a: 'Jose Reyes',
-			b: 'David Wright',
-			c: 'Mike Piazza',
-			d: 'Darryl Strawberry'
-		},
-		correctAnswer: 'b'
-	},
-	{
-		question: "What is my name?",
-		answers: {
-			a: 'Adam',
-			b: 'Bob',
-			c: 'Tamer',
-      d: 'Mustafa'
-
-		},
-		correctAnswer: 'c'
-	}
-);
-
-
+// console.log(startTimer)
+// console.log(startQuiz)
 
