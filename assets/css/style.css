@@ -33,14 +33,20 @@
 
 }
 
-/* .header p{
-    margin-top: 5px;
-    font-weight: bold;
-} */
-
 #time {
     margin-top: 0%;
     font-size: 20px;
+}
+
+p{
+    color: #ff5910;
+
+}
+
+h2{
+    color: #ff5910;
+
+
 }
 
 h3{
@@ -49,6 +55,14 @@ h3{
     margin-top: 0%;
 }
 
+button{
+    background-color :#04399d;   
+    border-radius: 10px 10px;
+    border-color: #ff5910;
+    box-shadow: rgba(23, 21, 17, 0.39) 3px 7px 9px -4px;
+    color: white;
+    font-size: 25px;
+}
 
 .main button{
     font-size: 20px;
@@ -76,28 +90,9 @@ h3{
 
 }
 
-
-.first-question p, .second-question p, .third-question p, 
-.fourth-question p, .fifth-question p{
+p{
     font-size: 25px;
-    color: #ff5910;
 }
-
-.first-question button, .second-question button, .third-question button, 
-.fourth-question button, .fifth-question button{
-    display: flex;
-    justify-content: center;
-    margin-left: 40%;
-    margin-right: 40%;
-    width: 20%;
-    font-size: 20px;
-    background-color :#04399d;   
-    border-radius: 10px 10px;
-    border-color: #ff5910;
-    box-shadow: rgba(23, 21, 17, 0.39) 3px 7px 9px -4px;
-    color: white;
-}
-
 
 .footer{
     display: flex;
@@ -135,17 +130,7 @@ h3{
         margin-left: 45%;
         margin-right: 45%;
     }
-    .first-question button, .second-question button, 
-    .third-question button, .fourth-question button, 
-    .fifth-question button{
-        font-size: 15px;
-
-    }
-    .first-question p, .second-question p, .third-question p, 
-    .fourth-question p, .first-question p, .fifth-question p{
-        font-size: 20px;
     }
     .header button{
         font-size: 15px;
     }
-}
