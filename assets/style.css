@@ -66,6 +66,7 @@
 }
 
 
+
 .first-selection p, .second-section p, .third-section p, 
 .fourth-section p, .fith-section p{
     font-size: 25px;
@@ -102,7 +103,7 @@
 
 }
 
-.footer h2{
+.footer title{
     margin-top: 2px;
     color: orange;
 }

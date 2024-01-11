@@ -12,7 +12,7 @@
 //! Create a input box that allows user to type name and retain score by keeping the data within the browser.
 
 //! Functions needed: startQuiz, endQuiz, correctAnswer, wrongAnswer
-//! Variables/Let statements for questions, clock/timer, randomQuestion (if want questions to be randomized)
+//! Variables/Let statements for questions, timeRemaining/timer, randomQuestion (if want questions to be randomized)
     //! score, timeLimt   
 
 // console.log(startTimer)
@@ -36,12 +36,13 @@ let questions = [{
 //global variables
 let nextQuestion = 0;
 let timeInterval = ""; //variable that is an empty string 
-let time = 10; // variable that will give the user the total time they have to complete the entire quiz
-let userScore = 10; //this will be when the user gets the answer right, they will get 10 points per correct answer 
+let time = 10; // variable that will give the user the total time they have to complete the entire quiz. //! Currently at 10secs for test purposes
+let userScore = 0; //left variable at 0, and instead added +(points) in function when user selects correct answer
 let finalScore = ""; // empty string that will hold the final score at the end of the quiz
-let clock = document.querySelector("#time"); // variable that will use the id=timeleft element from the main page
+
+let timeRemaining = document.querySelector("#time"); // variable that will use the id=timeleft element from the main page
 let prompt = document.querySelector("main"); // variable prompt that that will bring the user to the questions on the MAIN page on the HTML 
-let enterName = document.createElement("INPUT"); //input element created for the user to enter intials
+let enterName = document.createElement("input"); //input element created for the user to enter intials. //! Not working yet
 
 //when the user clicks om start quiz, timer will start and quiz will start via functions
 document.querySelector("#start").addEventListener("click", buttonClick); 
@@ -53,25 +54,58 @@ document.querySelector("#timeleft").style="color:red;";
 questionAsked();
 }
 
+//! Function working as intended
 function questionAsked() {
-// using a for loop- if 0 < question length, let user see question, answer and correct answer. Once clicked, generated question will come next
-// A new element for the user be created for each answer the user clicks
-// When the user clicks a answer, the answer will be correct, otherwise user will be informed incorrect ( WILL fix did not add yet)
-//! Will fix, no questions are currently being popped up
-let nextQuestion = [i]
-let question = questions[nextQuestion]
-let answers = questions[nextQuestion]
-let correct = questions[nextQuestion]
-for (let i = 0; 0 < questions.length; i++){
-
+if (nextQuestion < questions.length) {
+  let {question, answers, correct} = questions[nextQuestion];
+  nextQuestion++;
   prompt.innerHTML = `<h2>${question}</h2>`;
   answers.forEach((answer) => {
     let answerButton = document.createElement("button");
     answerButton.innerText = answer;
     prompt.appendChild(answerButton);
     answerButton.addEventListener("click", () => {
-      answerPicked(answer, correct);
+    answerPicked(answer, correct, userScore);
     });
   });
+} else {
+  const finalScore = document.createElement("p")
+  //? Shows up at right side. Unsure if I was it centerted. Need to add CSS elements later?
+  finalScore.textContent = `You're all done! You're final score was ${userScore}`;
+  document.body.appendChild(finalScore);
+  prompt.innerHTML = '';
+  endQuiz();
 }
+}
+
+//! When hitting correct answer, text does not leave page and continues to next page
+function answerPicked(answer, correct) {
+if (answer === correct) {
+  userScore += 10;
+  // alert("Correct!") //! If unable to get text to show properly, will use alert instead
+  const correctPpt = document.createElement("p")
+  correctPpt.textContent = `Correct!`;
+  document.body.appendChild(correctPpt);
+  prompt.innerHTML = '';
+  questionAsked();
+} else {
+  alert("Wrong!") //! Using alert for now.
+  time -= 5; 
+  questionAsked();
+}
+}
+
+
+function timeLeft() {
+time--;
+time > 0 ? (timeRemaining.innerHTML = time): 
+endQuiz();
+}
+//! Having issue at the end of the game, getting endQuiz error indicating via console.log that it is being called too many times. Have to look into.
+function endQuiz() {
+clearInterval(timeInterval);
+time = 0;
+timeRemaining.innerHTML = time;
+prompt.innerHTML = "";
+endQuiz();
 }
