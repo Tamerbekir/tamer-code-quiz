@@ -38,6 +38,11 @@
     font-weight: bold;
 }
 
+a:link {
+    font-size: 20px;
+
+}
+
 
 .main button{
     font-size: 20px;
@@ -62,10 +67,12 @@
     color: orange;
     box-shadow: rgba(23, 21, 17, 0.39) 3px 7px 9px 0px;
 
-
 }
 
-
+#wrapper h1{
+    font-size: 25px;
+    color: orange;
+}
 
 .first-selection p, .second-section p, .third-section p, 
 .fourth-section p, .fith-section p{
