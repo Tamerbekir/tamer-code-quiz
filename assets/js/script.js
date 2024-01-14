@@ -100,7 +100,6 @@ function answerPicked(answer, correct) {
     }
 }
 
-
 function timeLeft() {
     time--;
     time > 0 ? (timeRemaining.innerHTML = time) :
@@ -113,84 +112,73 @@ let answerSummary = document.createElement("p")
 function endQuiz() {
     main.innerHTML = ` `;
     if (time === 0)
-    timeRemaining.innerHTML = time; //stop clock when user finishes quiz
+        timeRemaining.innerHTML = time; //stop clock when user finishes quiz
     clearInterval(timeInterval)
 
-endGameSummary()
-    initials()
+    endGameSummary()
+    results()
 }
 
 let playAgainBtn = document.createElement('button');
 let endMessage = document.createElement("p");
 
-function endGameSummary(){
+function endGameSummary() {
 
     playAgainBtn.textContent = 'Play again?';
     playAgainBtn.addEventListener('click', function () {
         window.open("index.html");
     })
     main.appendChild(playAgainBtn);
-    
+
     endMessage.setAttribute("id", "endMessage");
-    endMessage.textContent = `All done! Your final score is: ${userScore}! Enter you intials below to save your score!`;
-    
+    endMessage.textContent = `All done! Your final score is ${userScore}! Enter you intials below to save your score!`;
+
     main.appendChild(endMessage);
 }
-    
-
-function initials() {
-
-    let createLabel = document.createElement("label");
-    createLabel.setAttribute("id", "createLabel");
-    createLabel.textContent = "Enter your initials: ";
-
-    main.appendChild(createLabel);
 
 
-    let createInput = document.createElement("input");
-    createInput.setAttribute("type", "text");
-    createInput.setAttribute("id", "initials");
-    createInput.textContent = "";
+function results() {
 
-    main.appendChild(createInput);
+    let nameLabel = document.createElement("label");
+    nameLabel.setAttribute("id", "nameLabel");
+    nameLabel.textContent = "Enter your name: ";
+
+    main.appendChild(nameLabel);
 
 
-    let createSubmit = document.createElement("button");
-    createSubmit.setAttribute("type", "submit");
-    createSubmit.setAttribute("id", "Submit");
-    createSubmit.textContent = "Submit";
+    let nameInput = document.createElement("input");
+    nameInput.setAttribute("type", "text");
+    nameInput.setAttribute("id", "nameInput");
+    nameInput.textContent = "";
 
-    main.appendChild(createSubmit);
+    main.appendChild(nameInput);
 
+
+    let submitBtn = document.createElement("button");
+    submitBtn.setAttribute("type", "submit");
+    submitBtn.setAttribute("id", "Submit");
+    submitBtn.textContent = "Submit";
+
+    main.appendChild(submitBtn);
+
+
+    submitBtn.addEventListener("click", function () {
+        let name = nameInput.value;
+
+        let lastScore = {
+            name: name,
+            score: userScore
+        }
+        console.log(lastScore);
+        let totalScores = localStorage.getItem("totalScores");
+        if (totalScores === false) {
+            totalScores = "";
+        } else {
+            totalScores = JSON.parse(totalScores);
+        }
+        totalScores.push(lastScore);
+        let newScore = JSON.stringify(totalScores);
+        localStorage.setItem("totalScores", newScore);
+        window.location.replace("scores.html");
+    })
 }
-
-// const emailInput = document.querySelector("#email");
-// const signUpButton = document.querySelector("#sign-up");
-
-
-// renderLastRegistered();
-
-
-// function registerScore() {
-//   const email = localStorage.getItem("email");
-//   const password = localStorage.getItem("password");
-
-  
-//   userEmailSpan.textContent = email;
-//   userPasswordSpan.textContent = password;
-// }
-
-// signUpButton.addEventListener("click", function (e) {
-//   e.preventDefault();
-
-//   const email = emailInput.value;
-
-
-//     localStorage.setItem("email", email);
-//     renderLastRegistered();
-//   }
-
-
-
-
-
