@@ -21,22 +21,38 @@
 
 //these will be the questions asked in the quiz
 let questions = [{
-    question: "Who is the Mets all time hitter?",
+    question: "Out of these four players, who holds the most hits for the Mets?",
     answers: ["David Wright", "Mike Piazza", "Darryl Strawberry", "Joe Reyes"],
     correct: "David Wright",
 },
 
 {
-    question: "This is a test",
-    answers: ["Test", "Test1", "Test2", "Test3"],
-    correct: "Test1",
-}]
-    ;
+    question: "Which Hall of Fame pitcher began his career with the New York Mets and went on to rack up over 5,000 strikeouts?",
+    answers: ["Nolan Ryan", "Al Leiter", "Tom Seaver", "Tom Glavine"],
+    correct: "Nolan Ryan",
+},
+
+{
+    question: "The New York Mets played their first season in 1962 in which stadium?",
+    answers: ["Shea Stadium", "The Polo Grounds", "Yankee Stadium", "Jets Stadium"],
+    correct: "The Polo Grounds",
+},
+
+{
+    question: "In 2008, the Mets acquired Johan Santana from the Minnesota Twins for 4 prospects. What outfielder did the Mets include in this trade?",
+    answers: ["Justin Turner", "Ike Davis", "Carlos Gomez", "Mike Pelfrey"],
+    correct: "Carlos Gomez",
+},]
+
+
+
+
+
 
 //global variables
 let nextQuestion = 0;
 let timeInterval = ""; //variable that is an empty string 
-let time = 10; // variable that will give the user the total time they have to complete the entire quiz. //! Currently at 10secs for test purposes
+let time = 75; // variable that will give the user the total time they have to complete the entire quiz. //! Currently at 10secs for test purposes
 let userScore = 0; //left variable at 0, and instead added +(points) in function when user selects correct answer
 let finalScore = ""; // empty string that will hold the final score at the end of the quiz
 let randomQuestion = questions.sort(() => Math.random() - 0.5);
@@ -58,6 +74,7 @@ function buttonClick() {
 }
 
 let questionTitles = document.createElement("p")
+
 
 //! Function working as intended but need to remove H2 element and apply uising javascritp
 function questionAsked() {
@@ -84,10 +101,6 @@ function answerPicked(answer, correct) {
     if (answer === correct) {
         userScore += 10;
         alert("Correct")
-        // let correctPpt = document.createElement("p")
-        // correctPpt.textContent = `Correct!`
-        // document.body.appendChild(correctPpt);
-        // setTimeout(() => {questionAsked()}, 2000);
         questionAsked();
     } else {
         alert("Wrong!")
@@ -110,9 +123,9 @@ let answerSummary = document.createElement("p")
 
 
 function endQuiz() {
-    main.innerHTML = ` `;
+    main.innerHTML = ``;
     if (time === 0)
-        timeRemaining.innerHTML = time; //stop clock when user finishes quiz
+    timeRemaining.innerHTML = time; //stop clock when user finishes quiz
     clearInterval(timeInterval)
 
     endGameSummary()
@@ -126,7 +139,7 @@ function endGameSummary() {
 
     playAgainBtn.textContent = 'Play again?';
     playAgainBtn.addEventListener('click', function () {
-        window.open("index.html");
+        window.location.replace("./index.html");
     })
     main.appendChild(playAgainBtn);
 
@@ -139,27 +152,28 @@ function endGameSummary() {
 
 function results() {
 
-    let nameLabel = document.createElement("label");
-    nameLabel.setAttribute("id", "nameLabel");
-    nameLabel.textContent = "Enter your name: ";
+    let nameLabel = document.createElement("label")
+    nameLabel.setAttribute("id", "nameLabel")
+    nameLabel.textContent = "Enter your name: "
 
     main.appendChild(nameLabel);
 
 
-    let nameInput = document.createElement("input");
-    nameInput.setAttribute("type", "text");
-    nameInput.setAttribute("id", "nameInput");
-    nameInput.textContent = "";
+    let nameInput = document.createElement("input")
+    nameInput.setAttribute("type", "text")
+    nameInput.setAttribute("id", "nameInput")
+    nameInput.textContent = ""
 
     main.appendChild(nameInput);
 
 
-    let submitBtn = document.createElement("button");
-    submitBtn.setAttribute("type", "submit");
-    submitBtn.setAttribute("id", "Submit");
-    submitBtn.textContent = "Submit";
+    let submitBtn = document.createElement("button")
+    submitBtn.setAttribute("type", "submit")
+    submitBtn.setAttribute("id", "Submit")
+    submitBtn.textContent = "Submit"
 
     main.appendChild(submitBtn);
+
 
 
     submitBtn.addEventListener("click", function () {
@@ -169,16 +183,16 @@ function results() {
             name: name,
             score: userScore
         }
-        console.log(lastScore);
         let totalScores = localStorage.getItem("totalScores");
-        if (totalScores === false) {
-            totalScores = "";
+        if (totalScores === null) {
+            totalScores = []
         } else {
-            totalScores = JSON.parse(totalScores);
+            totalScores = JSON.parse(totalScores)
         }
-        totalScores.push(lastScore);
-        let newScore = JSON.stringify(totalScores);
-        localStorage.setItem("totalScores", newScore);
-        window.location.replace("scores.html");
+        totalScores.push(lastScore)
+        let newScore = JSON.stringify(totalScores)
+        localStorage.setItem("totalScores", newScore)
+        window.location.replace("scores.html")
     })
 }
+

@@ -1,3 +1,16 @@
+:root{
+    --metsColorOrange: #FF5910;
+    --metsColorBlue: #002D72;
+    --metsThrowbackColor: #c3bfc3;
+    --metsThrowBackBlack: #000000d6;
+}
+
+body{
+    background-color: var(--metsThrowbackColor);
+    background-image:url(https://images.nanawall.com/gallery/2016-03-02-3/2048x1365_HSW50_NY_Mets_Stadium_Citi_Field_14.jpg?auto=format&fit=crop&w=1632&h=1088);
+    background-position: 100%;
+}
+
 .wrapper{
     display: flex;
     flex-flow: row wrap;
@@ -14,19 +27,19 @@
 
 .header{
     display: flex;
-    border: 3px solid rgb(72, 104, 232);
+    border: 3px solid var(--metsColorOrange);
     justify-content: space-between;
     height: 25px;
-    background-color :#04399d;
+    background-color: var(--metsColorBlue);
     box-shadow: rgba(23, 21, 17, 0.39) 3px 7px 9px 0px;
-    color: #ff5910;
+    color: var(--metsColorOrange)
 }
 
 .header button{
     border-radius: 10px 10px 10px 10px;
     box-shadow: 3px 7px 9px -4px;
     font-size: 15px;
-    background-color: #04399d;
+    background-color: var(--metsColorBlue);
     border-color: ff5910;
     box-shadow: rgba(23, 21, 17, 0.39) 3px 7px 9px -4px;
     color: white;
@@ -34,19 +47,23 @@
 }
 
 #time {
-    margin-top: 0%;
+    margin-top: -2%;
     font-size: 20px;
 }
 
-p{
-    color: #ff5910;
 
+p, h2{
+    color: var(--metsColorOrange)
 }
 
-h2{
-    color: #ff5910;
 
-
+img { 
+    display: flex;
+    height: 100px;
+    width: 105px;
+    margin-top: -3%; 
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 h3{
@@ -55,10 +72,52 @@ h3{
     margin-top: 0%;
 }
 
+/* found on scores.html */
+#highScore p{
+    display: flex;
+    justify-content: center;
+    background-color: var(--metsColorBlue);
+    color: var(--metsThrowbackColor);
+    font-size: 35px;
+    border: 2px solid;
+    width: 150px;
+    margin-left: 45%;
+    margin-right: 45%;
+    border-radius: 10px 10px;
+
+
+}
+
+/* found on scores.html */
+#goBack, #clear {  
+    display: flex;
+    justify-content: center;
+    margin: 1% auto;
+    background-color: var(--metsColorBlue);
+    
+}
+
+/* found on scores.html */
+h1{
+    display: flex;
+    justify-content: center;    
+    height: 40px;
+    margin-top: 5%;
+    font-size: 30px;
+    border-radius: 10px 10px;
+    border: 2px solid rgb(72, 104, 232);
+    margin-left: 30%;
+    margin-right: 30%;
+    background-color: var(--metsColorBlue);
+    color: white;
+    border-color: var(--metsColorOrange);
+}
+
+
 button{
     background-color :#04399d;   
     border-radius: 10px 10px;
-    border-color: #ff5910;
+    border-color: var(--metsColorOrange);
     box-shadow: rgba(23, 21, 17, 0.39) 3px 7px 9px -4px;
     color: white;
     font-size: 25px;
@@ -69,25 +128,24 @@ button{
     border-radius: 10px 10px 10px 10px;
     box-shadow: rgba(23, 21, 17, 0.39) 3px 7px 9px 0px;
     height: 30px;
-    background-color: #04399d;
-    border-color: #ff5910;
+    background-color: var(--metsColorBlue);
+    border-color: var(--metsColorOrange);
     color: white;
     margin-left: 40%;
     margin-right: 40%;
 }
 
+
 .main{
     flex-wrap: wrap;
     justify-content: center;
-    height: 300px;
+    height: 280px;
     font-size: 24px;
-    border: 3px solid rgb(72, 104, 232);
+    border: 3px solid var(--metsColorOrange);
     border-radius: 10px 10px;
-    background-color :#04399d;
-    color: #ff5910;
+    background-color: var(--metsColorBlue);
+    color: var(--metsColorOrange);
     box-shadow: rgba(23, 21, 17, 0.39) 3px 7px 9px 0px;
-
-
 }
 
 p{
@@ -101,15 +159,15 @@ p{
     margin-top: 5%;
     font-size: 10px;
     border-radius: 10px 10px;
-    border: 2px solid rgb(72, 104, 232);
+    border: 2px solid var(--metsColorOrange);
     margin-left: 35%;
     margin-right: 35%;
-    background-color :#04399d;
+    background-color: var(--metsColorBlue);
 }
 
 .footer h2{
     margin-top: 2px;
-    color: #ff5910;
+    color: white;
 }
 
 
@@ -119,18 +177,26 @@ p{
         font-size: 15px;
     }
     .main button{
-        font-size: 12px;
-        height: 40px;
+        font-size: 10px;
+        height: 30px;
     }
     .footer h2{
         font-size: 8.5px;
     }
     .footer{
-        height: 35px;
-        margin-left: 45%;
-        margin-right: 45%;
-    }
+        height: 20px;
+        width: 150px;
+        margin-left: 36%;
+        margin-right: 36%;
     }
     .header button{
         font-size: 15px;
     }
+    img{
+        width: 50px;
+        height: 50px;
+    }
+    h2{
+        font-size: 15px;
+    }
+}
