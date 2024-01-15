@@ -3,11 +3,12 @@
     --metsColorBlue: #002D72;
     --metsThrowbackColor: #c3bfc3;
     --metsThrowBackBlack: #000000d6;
+    --metsColorWhite:white;
+
 }
 
 body{
-    background-color: var(--metsThrowbackColor);
-    background-image:url(https://images.nanawall.com/gallery/2016-03-02-3/2048x1365_HSW50_NY_Mets_Stadium_Citi_Field_14.jpg?auto=format&fit=crop&w=1632&h=1088);
+    background-image:url(https://images.nanawall.com/gallery/2016-03-02-3/2048x1365_HSW50_NY_Mets_Stadium_Citi_Field_14.jpg?auto=format&fit=crop&w=1632&h=1088);    
     background-size: auto;
 }
 
@@ -61,7 +62,7 @@ img {
     display: flex;
     height: 100px;
     width: 105px;
-    margin-top: -3%; 
+    margin-top: -4%; 
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -77,15 +78,28 @@ h3{
     display: flex;
     justify-content: center;
     background-color: var(--metsColorBlue);
-    color: var(--metsThrowbackColor);
+    color: var(--metsColorWhite);
     font-size: 35px;
     border: 2px solid;
     width: 150px;
     margin-left: 45%;
     margin-right: 45%;
     border-radius: 10px 10px;
+}
 
+#frontPage{
+    display: flex;
+    float: right;
+    font-size: 25px;    
+    background-color: var(--metsColorBlue);
+}
 
+#answerButton{
+    margin-top: 2%;
+}
+
+#highScore {
+    display: flex;
 }
 
 /* found on scores.html */
@@ -146,6 +160,10 @@ button{
     background-color: var(--metsColorBlue);
     color: var(--metsColorOrange);
     box-shadow: rgba(23, 21, 17, 0.39) 3px 7px 9px 0px;
+    width: 70%;
+    margin-top: 3%;
+    margin-left: 13%;
+    margin-right: 13%;
 }
 
 p{
@@ -176,7 +194,7 @@ p{
         height: 230px;
         font-size: 15px;
     }
-    .main button{
+    .main button {
         font-size: 10px;
         height: 30px;
     }
@@ -199,4 +217,9 @@ p{
     h2{
         font-size: 15px;
     }
+    #highScore p {
+        font-size: 25px;
+
+    }
 }
+

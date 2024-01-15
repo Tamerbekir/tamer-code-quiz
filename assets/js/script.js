@@ -76,14 +76,25 @@ function buttonClick() {
 let questionTitles = document.createElement("p")
 
 
+let frontPage = document.createElement('button');
+frontPage.textContent = 'Quit';
+frontPage.setAttribute("id", "frontPage")
+frontPage.addEventListener('click', function () {
+    alert("Quitter!")
+    window.location.replace("./index.html");
+})
+document.body.appendChild(frontPage);
+
+
 //! Function working as intended but need to remove H2 element and apply uising javascritp
 function questionAsked() {
     if (nextQuestion < questions.length) {
         let { question, answers, correct } = questions[nextQuestion];
         nextQuestion++;
-        main.innerHTML = `<h2>${question}</h2>`;
+        main.innerHTML = `${question}`;
         answers.forEach((answer) => {
             let answerButton = document.createElement("button");
+            answerButton.setAttribute("id", "answerButton")
             answerButton.innerText = answer;
             main.appendChild(answerButton);
             answerButton.addEventListener("click", () => {
@@ -95,7 +106,6 @@ function questionAsked() {
     }
 }
 
-
 //! When hitting correct answer, text does not leave page and continues to next page
 function answerPicked(answer, correct) {
     if (answer === correct) {
@@ -103,12 +113,8 @@ function answerPicked(answer, correct) {
         alert("Correct")
         questionAsked();
     } else {
-        alert("Wrong!")
-        // let incorrectPpt = document.createElement("p")
-        // incorrectPpt.textContent = `Wrong!!`
-        // document.body.appendChild(incorrectPpt);
-        // setTimeout(() => {questionAsked()}, 2000);
         time -= 5;
+        alert("Wrong!")
         questionAsked();
     }
 }
@@ -120,7 +126,6 @@ function timeLeft() {
 }
 
 let answerSummary = document.createElement("p")
-
 
 function endQuiz() {
     main.innerHTML = ``;
@@ -145,40 +150,34 @@ function endGameSummary() {
 
     endMessage.setAttribute("id", "endMessage");
     endMessage.textContent = `All done! Your final score is ${userScore}! Enter you intials below to save your score!`;
-
     main.appendChild(endMessage);
 }
 
 
+let nameLabel = document.createElement("label")
+let nameInput = document.createElement("input")
+let submitBtn = document.createElement("button")
+
 function results() {
 
-    let nameLabel = document.createElement("label")
     nameLabel.setAttribute("id", "nameLabel")
     nameLabel.textContent = "Enter your name: "
-
     main.appendChild(nameLabel);
 
-
-    let nameInput = document.createElement("input")
     nameInput.setAttribute("type", "text")
     nameInput.setAttribute("id", "nameInput")
     nameInput.textContent = ""
-
     main.appendChild(nameInput);
 
-
-    let submitBtn = document.createElement("button")
     submitBtn.setAttribute("type", "submit")
     submitBtn.setAttribute("id", "Submit")
     submitBtn.textContent = "Submit"
-
-    main.appendChild(submitBtn);
+     main.appendChild(submitBtn);
 
 
 
     submitBtn.addEventListener("click", function () {
         let name = nameInput.value;
-
         let lastScore = {
             name: name,
             score: userScore
