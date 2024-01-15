@@ -188,6 +188,10 @@ p{
     color: white;
 }
 
+#playAgainBtn{
+    margin-top: 5%;
+}
+
 
 @media all and (max-width:800px){
     .main{
@@ -219,7 +223,6 @@ p{
     }
     #highScore p {
         font-size: 25px;
-
     }
 }
 

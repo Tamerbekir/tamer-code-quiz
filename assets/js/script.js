@@ -142,12 +142,6 @@ let endMessage = document.createElement("p");
 
 function endGameSummary() {
 
-    playAgainBtn.textContent = 'Play again?';
-    playAgainBtn.addEventListener('click', function () {
-        window.location.replace("./index.html");
-    })
-    main.appendChild(playAgainBtn);
-
     endMessage.setAttribute("id", "endMessage");
     endMessage.textContent = `All done! Your final score is ${userScore}! Enter you intials below to save your score!`;
     main.appendChild(endMessage);
@@ -172,7 +166,13 @@ function results() {
     submitBtn.setAttribute("type", "submit")
     submitBtn.setAttribute("id", "Submit")
     submitBtn.textContent = "Submit"
-     main.appendChild(submitBtn);
+    main.appendChild(submitBtn);
+    playAgainBtn.textContent = 'Play again?';
+    playAgainBtn.setAttribute("id", "playAgainBtn")
+    playAgainBtn.addEventListener('click', function () {
+        window.location.replace("./index.html");
+    })
+    main.appendChild(playAgainBtn);
 
 
 
