@@ -157,7 +157,7 @@ button{
     background-color: var(--metsColorBlue);
     color: var(--metsColorOrange);
     box-shadow: rgba(23, 21, 17, 0.39) 3px 7px 9px 0px;
-    width: 70%;
+    width: auto;
     margin-top: 3%;
     margin-left: 13%;
     margin-right: 13%;
@@ -208,9 +208,7 @@ p{
     }
     .footer{
         height: 20px;
-        width: 150px;
-        margin-left: 36%;
-        margin-right: 36%;
+        width: auto;
     }
     .header button{
         font-size: 15px;
