@@ -75,16 +75,18 @@ h3{
 
 /* found on scores.html */
 #highScore p{
-    display: flex;
     justify-content: center;
     background-color: var(--metsColorBlue);
     color: var(--metsColorWhite);
-    font-size: 35px;
+    font-size: 25px;
     border: 2px solid;
-    width: 150px;
-    margin-left: 45%;
-    margin-right: 45%;
     border-radius: 10px 10px;
+}
+
+#highScore {
+    display: flex;
+    justify-content: center;
+
 }
 
 #frontPage{
@@ -96,10 +98,6 @@ h3{
 
 #answerButton{
     margin-top: 2%;
-}
-
-#highScore {
-    display: flex;
 }
 
 /* found on scores.html */
@@ -115,7 +113,6 @@ h3{
 h1{
     display: flex;
     justify-content: center;    
-    height: 40px;
     margin-top: 5%;
     font-size: 30px;
     border-radius: 10px 10px;
@@ -192,6 +189,10 @@ p{
     margin-top: 5%;
 }
 
+#endMessage{
+    font-size: 30px;
+}
+
 
 @media all and (max-width:800px){
     .main{
@@ -215,14 +216,38 @@ p{
         font-size: 15px;
     }
     img{
-        width: 50px;
-        height: 50px;
+        width: 30px;
+        height: 30px;
+        margin-top: -9%;
+    }
+
+    h1{
+        font-size: 16px;
     }
     h2{
         font-size: 15px;
     }
-    #highScore p {
-        font-size: 25px;
+    #highScore p{
+        font-size: 15px;
+    }
+    #endMessage{
+        font-size: 20px;
+    }
+    #answerButton{
+        margin-top: 2%;
+        height: auto;
+        text-align: center;
+    }
+    #frontPage{
+        font-size: 15px;    
+        background-color: var(--metsColorBlue);
+    }
+    .footer{
+        margin-left: 28%;
+        margin-right: 28%;
+    }
+    #goBack, #clear{
+        font-size: 16px;
     }
 }
 

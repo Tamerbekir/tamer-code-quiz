@@ -42,6 +42,12 @@ let questions = [{
     question: "In 2008, the Mets acquired Johan Santana from the Minnesota Twins for 4 prospects. What outfielder did the Mets include in this trade?",
     answers: ["Justin Turner", "Ike Davis", "Carlos Gomez", "Mike Pelfrey"],
     correct: "Carlos Gomez",
+},
+
+{
+    question: "The New York Mets played their first season in 1962 in which stadium?",
+    answers: ["Shea Stadium", "The Polo Grounds", "Yankee Stadium", "Jets Stadium"],
+    correct: "The Polo Grounds",
 },]
 
 
