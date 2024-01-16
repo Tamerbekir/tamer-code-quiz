@@ -45,10 +45,21 @@ let questions = [{
 },
 
 {
-    question: "The New York Mets played their first season in 1962 in which stadium?",
-    answers: ["Shea Stadium", "The Polo Grounds", "Yankee Stadium", "Jets Stadium"],
-    correct: "The Polo Grounds",
+    question: "Who is the best Mets announcer?",
+    answers: ["Keith Hernandez", "Gary Carter", "Yogi Berra", "Jeff McNeil"],
+    correct: "Gary Carter"
+},
+{
+    question: "In 2006, what pitch did Carlos Beltran stare at to strike out in game 6 against the Cardnials in the NLCS? ",
+    answers: ["Fastball", "Curveball", "Slider", "Knuckball"],
+    correct: "Curveball"
+},
+{
+    question: "What player once hit 7 homeruns in a single postseason?",
+    answers: ["Cliff Floyd", "Mike Piazza", "Daniel Murphy", "Edgardo Alfonzo"],
+    correct: "Daniel Murphy"
 },]
+
 
 
 
@@ -119,7 +130,7 @@ function answerPicked(answer, correct) {
         alert("Correct")
         questionAsked();
     } else {
-        time -= 5;
+        time -= 10;
         alert("Wrong!")
         questionAsked();
     }

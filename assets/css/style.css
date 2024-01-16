@@ -74,19 +74,18 @@ h3{
 }
 
 /* found on scores.html */
-#highScore p{
-    justify-content: center;
+#highScore {
     background-color: var(--metsColorBlue);
     color: var(--metsColorWhite);
     font-size: 25px;
-    border: 2px solid;
     border-radius: 10px 10px;
+    margin-left: 50%;
+    margin-right: 50%;
 }
 
-#highScore {
-    display: flex;
-    justify-content: center;
-
+li {
+    display: block;   
+    text-align: center; 
 }
 
 #frontPage{
@@ -225,7 +224,7 @@ p{
     h2{
         font-size: 15px;
     }
-    #highScore p{
+    #highScore li{
         font-size: 15px;
     }
     #endMessage{

@@ -17,7 +17,7 @@ if (totalScores !== null) {
 
     for (let i = 0; i < totalScores.length; i++) {
 
-        let scoreSection = document.createElement("p");
+        let scoreSection = document.createElement("li");
         scoreSection.textContent = totalScores[i].name + " : " + totalScores[i].score;
         highScore.appendChild(scoreSection);
 
