@@ -63,6 +63,16 @@ let questions = [{
     question: "What player once hit 7 homeruns in a single postseason?",
     answers: ["Cliff Floyd", "Mike Piazza", "Daniel Murphy", "Edgardo Alfonzo"],
     correct: "Daniel Murphy"
+},
+{
+    question: "Which famous New York Met once guest starred on TV's 'Seinfeld?'",
+    answers: ["Ron Darling", "Keith Hernandez", "Jeff Kent", "Rey Ordonez"],
+    correct: "Keith Hernandez"
+},
+{
+    question: "What was the Mets' first year in the National League?",
+    answers: ["1960", "1962", "1959", "1947"],
+    correct: "1962"
 },]
 
 
@@ -166,7 +176,6 @@ function endGameSummary() {
     endMessage.textContent = `All done! Your final score is ${userScore}! Enter your name below to save your score!`;
     main.appendChild(endMessage);
 }
-
 
 // variables for creating bottons, inputs and submitting user data at the end of thr game whitch then gets appended to second HTML file.
 
