@@ -27,7 +27,7 @@ let questions = [{
 },
 
 {
-    question: "Which Hall of Fame pitcher began his career with the New York Mets and went on to rack up over 5,000 strikeouts?",
+    question: "Which HOF pitcher began his career with the New York Mets and finished with 5,000 strikeouts?",
     answers: ["Nolan Ryan", "Al Leiter", "Tom Seaver", "Tom Glavine"],
     correct: "Nolan Ryan",
 },
