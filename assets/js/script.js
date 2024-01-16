@@ -22,7 +22,7 @@
 //these will be the questions asked in the quiz
 let questions = [{
     question: "Out of these four players, who holds the most hits for the Mets?",
-    answers: ["David Wright", "Mike Piazza", "Darryl Strawberry", "Joe Reyes"],
+    answers: ["David Wright", "Mike Piazza", "Darryl Strawberry", "Jose Reyes"],
     correct: "David Wright",
 },
 
@@ -66,7 +66,7 @@ let questions = [{
 },]
 
 
-//global variables
+//global variables for basic start function
 let nextQuestion = 0;
 let timeInterval = ""; //variable that is an empty string 
 let time = 75; // variable that will give the user the total time they have to complete the entire quiz. //! Currently at 10secs for test purposes
@@ -92,7 +92,7 @@ function buttonClick() {
 
 let questionTitles = document.createElement("p")
 
-
+//created quit button so user can leave at any time
 let frontPage = document.createElement('button');
 frontPage.textContent = 'Quit';
 frontPage.setAttribute("id", "frontPage")
@@ -103,7 +103,8 @@ frontPage.addEventListener('click', function () {
 document.body.appendChild(frontPage);
 
 
-//! Function working as intended but need to remove H2 element and apply uising javascritp
+//Fixed issue with h2 element in script- moved to HTML by appending created element
+//Function works as a loop for every time user answers, function will loop to another questions and run until time is up
 function questionAsked() {
     if (nextQuestion < questions.length) {
         let { question, answers, correct } = questions[nextQuestion];
@@ -123,7 +124,7 @@ function questionAsked() {
     }
 }
 
-//! When hitting correct answer, text does not leave page and continues to next page
+// questions will loop whether right or wrong and user will be get alert if they are correct or not.
 function answerPicked(answer, correct) {
     if (answer === correct) {
         userScore += 10;
@@ -136,6 +137,7 @@ function answerPicked(answer, correct) {
     }
 }
 
+//once timer ends, game is over
 function timeLeft() {
     time--;
     time > 0 ? (timeRemaining.innerHTML = time) :
@@ -154,16 +156,19 @@ function endQuiz() {
     results()
 }
 
+//created PLAY AGAIN botton for user instead of hitting going to scoreboard as their only choice. Added function into the end of the quiz function
 let playAgainBtn = document.createElement('button');
 let endMessage = document.createElement("p");
 
 function endGameSummary() {
 
     endMessage.setAttribute("id", "endMessage");
-    endMessage.textContent = `All done! Your final score is ${userScore}! Enter you intials below to save your score!`;
+    endMessage.textContent = `All done! Your final score is ${userScore}! Enter your name below to save your score!`;
     main.appendChild(endMessage);
 }
 
+
+// variables for creating bottons, inputs and submitting user data at the end of thr game whitch then gets appended to second HTML file.
 
 let nameLabel = document.createElement("label")
 let nameInput = document.createElement("input")
@@ -172,7 +177,7 @@ let submitBtn = document.createElement("button")
 function results() {
 
     nameLabel.setAttribute("id", "nameLabel")
-    nameLabel.textContent = "Enter your name: "
+    nameLabel.textContent = "Name: "
     main.appendChild(nameLabel);
 
     nameInput.setAttribute("type", "text")
@@ -187,12 +192,12 @@ function results() {
     playAgainBtn.textContent = 'Play again?';
     playAgainBtn.setAttribute("id", "playAgainBtn")
     playAgainBtn.addEventListener('click', function () {
-        window.location.replace("./index.html");
+        window.location.replace("./index.html"); //this will take user to the second HTML page. Replaced windo.open with window.location replace so user doesnt havea second page open on them
     })
     main.appendChild(playAgainBtn);
 
 
-
+//user data will go into local storage here and then appended to page. Once user hits SUBMIT they will be taken to the scoreboard page via SCORES.HTML
     submitBtn.addEventListener("click", function () {
         let name = nameInput.value;
         let lastScore = {
