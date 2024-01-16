@@ -45,12 +45,17 @@ let questions = [{
 },
 
 {
-    question: "Who is the best Mets announcer?",
+    question: "What player had the nickname, 'the kid'?",
     answers: ["Keith Hernandez", "Gary Carter", "Yogi Berra", "Jeff McNeil"],
     correct: "Gary Carter"
 },
 {
-    question: "In 2006, what pitch did Carlos Beltran stare at to strike out in game 6 against the Cardnials in the NLCS? ",
+    question: "Who is the best Mets announcer?",
+    answers: ["Keith Hernandez", "Ron Darling", "Gary Cohen", "Howie Rose", "All of the above"],
+    correct: "All of the above"
+},
+{
+    question: "In 2006, what pitch did Carlos Beltran stare at to strike out in game 6 against the Cardnials?",
     answers: ["Fastball", "Curveball", "Slider", "Knuckball"],
     correct: "Curveball"
 },
@@ -59,11 +64,6 @@ let questions = [{
     answers: ["Cliff Floyd", "Mike Piazza", "Daniel Murphy", "Edgardo Alfonzo"],
     correct: "Daniel Murphy"
 },]
-
-
-
-
-
 
 
 //global variables
@@ -127,7 +127,7 @@ function questionAsked() {
 function answerPicked(answer, correct) {
     if (answer === correct) {
         userScore += 10;
-        alert("Correct")
+        alert("Correct!")
         questionAsked();
     } else {
         time -= 10;
