@@ -192,15 +192,17 @@ p{
     font-size: 30px;
 }
 #answerButton{
-    font-size: 18;
+    font-size: 18px;
     width: auto;
     height: auto;
+    margin-right: 30%;
+    margin-left: 30%;
 }
 
 
 @media all and (max-width:800px){
     .main{
-        height: 230px;
+        height: 250px;
         font-size: 15px;
     }
     .main button {
@@ -236,9 +238,11 @@ p{
         font-size: 20px;
     }
     #answerButton{
+        font-size: 13px;
+        font-weight: 400;
         margin-top: 2%;
-        height: auto;
-        width: auto;
+        height: 39px;
+        width: 100;
         text-align: center;
     }
     #frontPage{
